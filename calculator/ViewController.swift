@@ -44,7 +44,6 @@ class ViewController: UIViewController {
             
             previousNumber = Double(label.text!)!
             
-            
             if sender.tag==12 {
                 label.text = "/"
             }
@@ -69,16 +68,13 @@ class ViewController: UIViewController {
             }
             
             if sender.tag==17 {
-                label.text = "."
-                decimalClicked(sender.tag)
+                decimalClicked()
             }
-            //ojo arriba
             
             operation = sender.tag
             performingMath = true
             
         } else if sender.tag == 16 {
-            
             
             if operation == 12 {
                 label.text = String(previousNumber/numberOnScreen)
@@ -99,18 +95,13 @@ class ViewController: UIViewController {
                 label.text = String(numberOnScreen/100)
             }
             
-            
          } else if sender.tag == 11 {
              resetValues()
          }
             
     }
     
-    
-    
-    
-  //Functions
-    
+    //Functions
     
     //Reset values
     func resetValues(){
@@ -120,13 +111,10 @@ class ViewController: UIViewController {
         operation=0
     }
     
-    func decimalClicked(_ tag:Int){
-        
-            
+    func decimalClicked(){
         if operation == 17 {
-            numberOnScreen = 0
             //var decimalPlace:Int = 1
-             
+            label.text?.append(".")
         }
     }
         
